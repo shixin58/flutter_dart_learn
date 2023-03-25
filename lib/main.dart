@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dart_learn/data_type.dart';
+import 'package:flutter_dart_learn/function_learn.dart';
+import 'package:flutter_dart_learn/generic_learn.dart';
 import 'package:flutter_dart_learn/oop_learn.dart';
 
+/// 入口方法
 void main() {
   runApp(const MyApp());
 }
@@ -41,7 +44,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    _oopLearn();
+    // _oopLearn();
+    // _functionLearn();
+    _genericLearn();
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -57,7 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
-            const DataType(),
+            // const DataType(),
           ],
         ),
       ),
@@ -91,5 +96,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
     StudyFlutter studyFlutter = StudyFlutter();
     studyFlutter.learn();
+  }
+
+  void _functionLearn() {
+    TestFunction.start();
+  }
+
+  void _genericLearn() {
+    TestGeneric.start();
   }
 }
