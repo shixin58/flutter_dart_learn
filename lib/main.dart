@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dart_learn/data_type.dart';
+import 'package:flutter_dart_learn/oop_learn.dart';
 
 void main() {
   runApp(const MyApp());
@@ -40,6 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    _oopLearn();
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -65,5 +67,29 @@ class _MyHomePageState extends State<MyHomePage> {
         child: const Icon(Icons.add),
       ),
     );
+  }
+
+  void _oopLearn() {
+    print('----_oopLearn----');
+    Logger log1 = Logger();
+    Logger log2 = Logger();
+    print(log1 == log2);
+
+    Student.doPrint('China');
+    Student stu1 = Student('清华', 'Max', 16);
+    stu1.school = '211';
+    print('stu1:$stu1');
+
+    Student stu2 = Student('北大', 'Lili', 15, city: 'New York', country: 'USA');
+    print('stu2:$stu2');
+
+    Student stu3 = Student.cover(stu2);
+    print('stu3:$stu3');
+    print('${stu2.hashCode} ${stu3.hashCode}');
+    Student stu4 = Student.stu(stu2);
+    print('stu4:$stu4');
+
+    StudyFlutter studyFlutter = StudyFlutter();
+    studyFlutter.learn();
   }
 }
