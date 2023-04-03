@@ -83,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
     Student.doPrint('China');
     Student stu1 = Student('清华', 'Max', 16);
     stu1.school = '211';
-    print('stu1:$stu1');
+    print('stu1.school:${stu1.school}');
 
     Student stu2 = Student('北大', 'Lili', 15, city: 'New York', country: 'USA');
     print('stu2:$stu2');

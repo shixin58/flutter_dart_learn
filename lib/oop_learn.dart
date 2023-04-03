@@ -1,3 +1,5 @@
+import 'package:flutter/foundation.dart';
+
 class Person {
   String name;
   int age;
@@ -20,10 +22,13 @@ class Student extends Person {
   /// 冒号后依次初始化列表和super
   Student(this._school, String name, int age, {this.city,this.country='China'}) : address = '$country.$city',
         super(name, age) {
-    print('1、标准构造方法体不是必须的');
+    if (kDebugMode) {
+      print('1、标准构造方法体不是必须的');
+    }
   }
 
   // 定义getter方法
+  // Unnecessary use of getter and setter to wrap a field.
   String get school => _school;
 
   // 定义setter方法
@@ -38,7 +43,9 @@ class Student extends Person {
 
   Student.cover(Student stu) : _school=stu._school, city=stu.city, country=stu.country, address=stu.address,
         super(stu.name, stu.age) {
-    print('2、命名构造方法');
+    if (kDebugMode) {
+      print('2、命名构造方法');
+    }
   }
 
   /// 4、命名工厂构造方法：Dart网络请求数据解析，将网络数据解析成Model。
@@ -48,7 +55,9 @@ class Student extends Person {
 
   /// 静态方法
   static doPrint(String str) {
-    print('doPrint:$str');
+    if (kDebugMode) {
+      print('doPrint:$str');
+    }
   }
 }
 
@@ -65,7 +74,9 @@ class Logger {
 
   /// 实例方法
   void log(String msg) {
-    print(msg);
+    if (kDebugMode) {
+      print(msg);
+    }
   }
 }
 
@@ -76,7 +87,9 @@ abstract class Study {
 class StudyFlutter extends Study {
   @override
   void learn() {
-    print('Learning Flutter');
+    if (kDebugMode) {
+      print('Learning Flutter');
+    }
   }
 }
 
@@ -86,6 +99,9 @@ class Test extends Person with Study {
 
   @override
   void learn() {
-    // TODO: implement learn
+    if (kDebugMode) {
+      // Don't invoke 'print' in production code.
+      print('Learning mixins');
+    }
   }
 }
